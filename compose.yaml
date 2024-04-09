@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  mariadb:
+    image: mariadb
+    container_name: fitness-trAIner-test-db
+
+    environment:
+      MARIADB_DATABASE: db24108
+      MARIADB_USER: dbid241
+      MARIADB_PASSWORD: dbpass241
+      MARIADB_ROOT_PASSWORD: dbpass241
+    restart: always
+    volumes:
+      - ./conf/maria/maria.cnf:/etc/mysql/conf.d/mysql.cnf
+      - ./conf/maria/init-sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
